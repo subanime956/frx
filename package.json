@@ -1,0 +1,9 @@
+{
+  "name": "fraxinami-wallpapers",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node tools/generar-indices.mjs",
+    "importar": "node tools/aplicar-lotes.mjs"
+  }
+}
