@@ -5,6 +5,9 @@ import {path,visibleCatalog,ecchiEnabled,aiEnabled,favoritesList} from './site.j
 import {API_URL} from './config.js?v=10.7';
 import {norm,prefixOf,bucketOf} from './indexador.js?v=10.9.4';
 const memo=new Map();
+// 30 publicaciones visibles por página. Los índices existentes pueden seguir
+// divididos en bloques de 24 (manifest.pageSize): no requieren regeneración.
+const DISPLAY_PAGE_SIZE=30;
 async function json(file){
  const url=path(file);
  if(!memo.has(url)){
@@ -54,7 +57,7 @@ async function searchLocal(q,page,manifest){
  postingLists.sort((a,b)=>a.size-b.size);
  const ids=[...(postingLists[0]||new Map()).keys()].filter(id=>postingLists.every(x=>x.has(id)));
  // El orden de búsqueda respeta la publicación más reciente (primer índice).
- const current=ids.slice((page-1)*24,page*24);
+ const current=ids.slice((page-1)*DISPLAY_PAGE_SIZE,page*DISPLAY_PAGE_SIZE);
  if(!current.length)return {items:[],total:ids.length};
  const groups=new Map();
  for(const id of current){const bucket=bucketOf(id);if(!groups.has(bucket))groups.set(bucket,[]);groups.get(bucket).push(id);}
@@ -70,7 +73,7 @@ async function favoritesLocal(page){
  // Un favorito requiere solo su ficha pequeña, no el catálogo completo.
  const records=await Promise.all(ids.map(id=>json(`data/index/lookup/${bucketOf(id)}.json`).then(bucket=>bucket[id]||null).catch(()=>null)));
  const items=visibleCatalog(records.filter(Boolean));
- return {items:items.slice((page-1)*24,page*24),total:items.length};
+ return {items:items.slice((page-1)*DISPLAY_PAGE_SIZE,page*DISPLAY_PAGE_SIZE),total:items.length};
 }
 export async function loadListing(page){
  const n=pageNo(),q=queryOf(),slug=document.documentElement.dataset.category||'',activeMode=mode();
@@ -97,8 +100,15 @@ export async function loadListing(page){
   if(['moviles','escritorio'].includes(home)){sub=`dispositivo/${home}`;total=view.devices?.[home]||0;}
   if(home==='aleatorio'){randomLane=pickLane(view.randomVariants||8);sub=`aleatorio/${randomLane}`;total=view.all;}else randomLane=0;
  }
- if(total===0||n>Math.ceil(total/24))return {items:[],total};
- const items=await json(`data/index/feed/${view.dataMode||activeMode}/${sub}/${n}.json`);
+ if(total===0||n>Math.ceil(total/DISPLAY_PAGE_SIZE))return {items:[],total};
+ // Juntamos solo los fragmentos necesarios para mostrar 30 tarjetas, aunque
+ // el JSON del servidor se haya generado previamente en páginas de 24.
+ const indexSize=Number(manifest.pageSize)||24;
+ const offset=(n-1)*DISPLAY_PAGE_SIZE,end=Math.min(offset+DISPLAY_PAGE_SIZE,total);
+ const from=Math.floor(offset/indexSize)+1,to=Math.floor((end-1)/indexSize)+1;
+ const prefix=`data/index/feed/${view.dataMode||activeMode}/${sub}/`;
+ const chunks=await Promise.all(Array.from({length:to-from+1},(_,i)=>json(`${prefix}${from+i}.json`)));
+ const items=chunks.flat().slice(offset-(from-1)*indexSize,offset-(from-1)*indexSize+(end-offset));
  return {items,total};
 }
 export async function loadDetail(){

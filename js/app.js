@@ -1,9 +1,9 @@
 import {emptyState,initSite,readCatalog} from './site.js?v=10.7';
-import {renderGallery} from './galeria.js?v=10.9.3';
-import {renderDetail} from './detalle.js?v=10.9.3';
+import {renderGallery} from './galeria.js?v=10.9.7';
+import {renderDetail} from './detalle.js?v=10.9.7';
 import {initPublisher} from './publicar.js?v=10.9.6';
 import {renderStaticPage} from './paginas.js?v=10.7';
-import {loadListing,loadDetail,readManifest} from './servicio.js?v=10.9.4';
+import {loadListing,loadDetail,readManifest} from './servicio.js?v=10.9.7';
 import {API_URL} from './config.js?v=10.7';
 initSite();
 const page=document.documentElement.dataset.page||'home';

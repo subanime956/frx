@@ -100,7 +100,7 @@ export function renderDetail(item,related=[]){
    <button class="button button--primary report-send" id="report-send" type="submit"><i class="fa-regular fa-envelope" aria-hidden="true"></i> Abrir en Gmail</button>
   </form>
  </dialog>`;
- mountMasonry(app.querySelector('.detail-related .gallery'),rotarRelacionados(visibleCatalog(related),12));
+ mountMasonry(app.querySelector('.detail-related .gallery'),rotarRelacionados(visibleCatalog(related),15));
  syncFavorites();
  const reportDialog=document.getElementById('report-dialog');
  document.getElementById('report-trigger').addEventListener('click',()=>reportDialog.showModal());

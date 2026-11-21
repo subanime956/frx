@@ -1,8 +1,8 @@
 import {emptyState,sectionTitle,categoryName} from './site.js?v=10.7';
 import {mountMasonry} from './masonry.js?v=10.9.3';
 import {homeContent} from './inicio.js?v=10.9';
-import {currentRandomLane} from './servicio.js?v=10.7';
-const PAGE_SIZE=24;
+import {currentRandomLane} from './servicio.js?v=10.9.7';
+const PAGE_SIZE=30;
 function pageUrl(p){const url=new URL(location.href);url.searchParams.delete('page');if(p>1)url.searchParams.set('page',p);return url.href;}
 function pagination(total,page){
  const pages=Math.ceil(total/PAGE_SIZE);
