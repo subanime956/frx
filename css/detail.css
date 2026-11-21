@@ -1,0 +1,62 @@
+/* Desktop detail geometry: intro and wide 16:9 left image + right information card. */
+.detail-intro{margin-bottom:18px}.detail-intro .section-title{margin-bottom:11px}.detail-intro h1{font-size:22px}.detail-description{max-width:840px;font-size:12px;line-height:1.65;color:var(--soft)}
+.detail-layout{display:grid;grid-template-columns:minmax(0,1fr) 366px;gap:26px;align-items:start}.wallpaper-viewer{min-width:0;background:var(--panel);border-radius:15px;overflow:hidden}.hero-stage{position:relative;aspect-ratio:16/9;overflow:hidden;background:#211729;display:grid;place-items:center}.hero-backdrop{position:absolute;inset:-55px;width:calc(100% + 110px);height:calc(100% + 110px);object-fit:cover;filter:blur(32px) brightness(.46)}.hero-image{position:relative;z-index:1;display:block;width:100%;height:100%;object-fit:contain}.hero-heart{position:absolute;z-index:2;top:14px;right:14px;display:grid;place-items:center;width:37px;height:37px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:rgba(24,20,30,.45);backdrop-filter:blur(8px);color:#fff;font-size:18px;opacity:0;transition:opacity .2s,transform .2s,background .2s}.hero-stage:hover .hero-heart,.hero-heart:focus-visible,.hero-heart.is-favorite{opacity:1}.hero-heart.is-favorite,.hero-heart:hover{color:#dcaeff;background:rgba(27,14,36,.85)}
+/* Closed until click; expanded rows animate in place, not a new page. */
+.resolution-panel{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:17px 15px 20px;min-height:73px}.resolution-label{font-size:11px;color:var(--soft);margin-right:1px}.resolution-tab{height:35px;display:inline-flex;align-items:center;gap:9px;padding:0 11px;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--soft);font-size:11px;font-weight:600;transition:background .17s,border-color .17s,color .17s}.resolution-tab:hover{background:var(--panel-hover);color:var(--text)}.resolution-tab.selected{border-color:var(--accent);background:var(--accent-wash);color:var(--accent)}.resolution-tab i{font-size:14px}.resolution-collapse{flex-basis:100%;display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .24s ease,opacity .24s ease}.resolution-collapse.expanded{grid-template-rows:1fr;opacity:1}.resolution-collapse-inner{overflow:hidden}.resolution-options{padding-top:10px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.resolution-option{min-height:41px;min-width:0;padding:9px 6px;border:1px solid var(--line);border-radius:9px;background:transparent;color:var(--text);font-size:11.6px;font-weight:650;transition:border-color .2s,color .2s,background .2s}.resolution-option:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-wash)}.resolution-option:disabled{opacity:.55;cursor:wait}
+.wallpaper-sidebar{border-radius:15px;background:var(--panel);padding:18px}.download-actions{display:flex;flex-direction:column;gap:9px;margin-bottom:29px}.download-actions button{width:100%;min-height:48px;border-radius:11px;font-size:12px;font-weight:650;white-space:nowrap}.download-actions button i{font-size:14px}.metadata-item{margin-bottom:22px}.metadata-item .eyebrow{margin-bottom:10px}.label-chip{display:inline-flex;align-items:center;margin:0 5px 6px 0;padding:8px 10px;line-height:1.2;border-radius:5px;border:1px solid var(--line);background:var(--field);color:var(--soft);font-size:11.5px;white-space:normal;transition:background .15s,color .15s}.label-chip:hover{color:var(--text);background:var(--panel-hover)}.author-chip{background:transparent}.tags{display:flex;flex-wrap:wrap;gap:0}.share-block{padding-top:17px;border-top:1px solid var(--line);margin-bottom:0}.share-actions{display:flex;gap:10px}.share-actions a{display:grid;place-items:center;height:37px;width:37px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--soft);font-size:18px;transition:border-color .16s,background .16s,color .16s}.share-actions a:hover{border-color:var(--accent);background:var(--accent-wash);color:var(--accent)}.detail-related{margin-top:26px}.detail-related .section-title{margin-bottom:15px}
+@media(max-width:960px){.detail-layout{grid-template-columns:minmax(0,1fr) 290px;gap:18px}.wallpaper-sidebar{padding:15px}.resolution-options{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:760px){.detail-layout{grid-template-columns:1fr;gap:20px}.wallpaper-sidebar{width:100%;padding:18px}.resolution-options{grid-template-columns:repeat(4,minmax(0,1fr))}.detail-related{margin-top:30px}}
+@media(max-width:650px){.detail-intro{margin-bottom:20px}.detail-intro h1{font-size:19px}.detail-intro .section-title{margin-bottom:12px}.detail-description{font-size:11.5px;line-height:1.65}.wallpaper-viewer,.wallpaper-sidebar{border-radius:15px}.hero-stage[data-orientation="portrait"]{aspect-ratio:auto;height:auto}.hero-stage[data-orientation="portrait"] .hero-image{height:auto;width:100%;object-fit:contain}.hero-stage[data-orientation="portrait"] .hero-backdrop{display:none}.resolution-panel{padding:16px;gap:7px;min-height:79px}.resolution-label{font-size:10px;margin-right:3px}.resolution-tab{padding:0 10px;height:35px;font-size:11px}.resolution-options{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.resolution-option{min-height:38px;font-size:11px}.hero-heart{width:34px;height:34px;opacity:1;right:10px;top:10px}.wallpaper-sidebar{padding:18px}.download-actions{margin-bottom:29px}.download-actions button{min-height:51px;font-size:12px}.metadata-item{margin-bottom:21px}.label-chip{font-size:11px}.detail-related{margin-top:28px}}
+@media(max-width:370px){.resolution-panel{padding:11px;gap:5px}.resolution-tab{padding:0 6px}.resolution-options{grid-template-columns:repeat(2,minmax(0,1fr))}.download-actions button{font-size:10.5px}}
+
+
+/* V4: portrait detail image stays fully visible in the 16:9 desktop frame. */
+.hero-stage{display:block;aspect-ratio:16/9;overflow:hidden;isolation:isolate}
+.hero-backdrop{position:absolute;z-index:0;inset:-60px;width:calc(100% + 120px);height:calc(100% + 120px);object-fit:cover;filter:blur(36px) brightness(.52)}
+.hero-stage .hero-image{position:absolute;z-index:1;top:0;left:0;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center center;min-width:0;min-height:0}
+.hero-heart{z-index:3;display:flex;align-items:center;justify-content:center;padding:0;line-height:1}
+.hero-heart i{line-height:1;display:block}
+.label-chip{border-color:var(--line);transition:background .17s,border-color .17s,color .17s,box-shadow .17s}
+.label-chip:hover,.label-chip:focus-visible{color:var(--accent);background:var(--accent-wash);border-color:var(--accent);box-shadow:0 0 0 1px rgba(188,141,244,.14)}
+.author-chip{cursor:pointer}
+.share-actions .social-link:hover{background:var(--panel-hover);border-color:var(--line)}
+.share-actions .social-pinterest-p:hover{color:#e60023;background:rgba(230,0,35,.12);border-color:rgba(230,0,35,.25)}
+.share-actions .social-facebook-f:hover{color:#1877f2;background:rgba(24,119,242,.13);border-color:rgba(24,119,242,.28)}
+.share-actions .social-x-twitter:hover{color:var(--text);background:var(--field);border-color:var(--muted)}
+.share-actions .social-reddit-alien:hover{color:#ff4500;background:rgba(255,69,0,.13);border-color:rgba(255,69,0,.25)}
+@media(max-width:650px){
+ .hero-stage[data-orientation="portrait"]{height:auto;aspect-ratio:var(--original-ratio)}
+ .hero-stage[data-orientation="portrait"] .hero-backdrop{display:none}
+ .hero-stage[data-orientation="portrait"] .hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+ .hero-heart{width:34px;height:34px;top:10px;right:10px;opacity:1}
+}
+
+.detail-flags{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-top:7px}
+.detail-flags .content-flag{font-size:11px;min-height:27px;padding:5px 9px;background:var(--accent-wash);color:var(--accent);border-color:var(--line);backdrop-filter:none}
+
+/* V6: mostrar únicamente opciones de resolución que tengan un archivo posible */
+.download-actions:empty{display:none}
+
+/* V8.3: la barra del título acompaña toda la altura del texto, incluso cuando salta de línea. */
+.detail-intro .section-title{align-items:stretch}
+.detail-intro .section-title::before{height:auto;align-self:stretch;border-radius:1px}
+
+
+/* V10.5 — Informe desde la ficha, sin formulario externo incrustado. */
+.report-block{border-top:1px solid var(--line);margin-top:17px;padding-top:16px}
+.report-trigger{border:0;background:transparent;color:var(--muted);display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:600;padding:8px 2px}
+.report-trigger:hover{color:var(--accent)}.report-trigger i{font-size:12px}
+.report-dialog{color:var(--text);background:var(--panel);border:1px solid var(--line);width:min(92vw,590px);max-height:calc(100dvh - 24px);overflow-y:auto;border-radius:15px;padding:0;box-shadow:0 25px 90px rgba(0,0,0,.5)}
+.report-dialog::backdrop{background:rgba(12,9,18,.76);backdrop-filter:blur(5px)}
+.report-dialog-inner{display:flex;flex-direction:column;gap:16px;padding:25px 25px 26px}
+.report-dialog-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.report-dialog-heading h2{font-size:19px;letter-spacing:-.025em}
+.report-close{border:0;background:transparent;font-size:18px;color:var(--muted);padding:5px;line-height:1}.report-close:hover{color:var(--text)}
+.report-field{display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:600;color:var(--soft)}
+.report-field select,.report-field textarea{width:100%;border-radius:9px;border:1px solid var(--line);background:var(--field);padding:12px;color:var(--text);font-size:12px;font-weight:400;resize:vertical}
+.report-field select{min-height:44px}.report-field textarea{min-height:64px;line-height:1.6}
+.report-field textarea[readonly]{resize:none;overflow-wrap:anywhere;color:var(--muted)}
+.report-notice{font-size:11px;line-height:1.5;color:var(--muted)}
+.report-send{align-self:flex-start;min-width:155px;min-height:43px}
+@media(max-width:650px){.report-dialog{width:calc(100vw - 26px)}.report-dialog-inner{padding:19px;gap:13px}.report-dialog-heading h2{font-size:18px}}
+
+/* V10.9.1: todas las resoluciones muestran únicamente sus dimensiones. */

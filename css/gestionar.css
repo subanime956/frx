@@ -1,0 +1,35 @@
+/* Solo herramientas privadas de administración. No afectan al sitio público. */
+.manager-results{display:grid;gap:6px;max-height:300px;overflow:auto;margin:12px 0 22px;padding-right:5px}
+.manager-result{border:1px solid var(--border,#4a4159);background:transparent;color:inherit;border-radius:12px;display:flex;align-items:center;gap:12px;padding:8px;cursor:pointer;text-align:left;min-width:0}
+.manager-result.selected{border-color:#a788e7;background:rgba(145,109,212,.10)}
+.manager-result img,.manager-placeholder{width:56px;height:56px;object-fit:cover;border-radius:9px;flex-shrink:0;background:rgba(120,100,150,.10);display:grid;place-items:center}
+.manager-result span:not(.manager-placeholder){min-width:0;display:grid;gap:2px}
+.manager-result strong{font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.manager-result small{font-size:11px;opacity:.70;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.manager-selected-heading{margin:16px 0}
+.manager-selected-heading h2{overflow-wrap:anywhere}
+.manager-variant-row{grid-template-columns:1fr 1.7fr auto}
+.manager-pending-row{display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid rgba(130,120,145,.15);padding:11px 0;font-size:12px}
+.manager-pending-row button{background:none;color:var(--muted);border:0;cursor:pointer;text-decoration:underline}
+.manager-help{font-size:12px;line-height:1.7;border-top:1px solid rgba(130,120,145,.18);margin-top:20px;padding-top:15px}
+.manager-help p{margin:9px 0}
+.manager-help code{font-size:11px;word-break:break-word}
+.manager-danger{border:1px solid #a9444d;padding:16px;border-radius:12px;line-height:1.7}
+.manager-delete-button{background:#a12e49!important;color:white!important;margin-top:12px}
+.manager-error{color:#f39eac!important}
+#manager-edit-form>.field,#manager-edit-form>.field-grid,#manager-edit-form>.publish-asset-box{margin:14px 0}
+@media(max-width:600px){.manager-result img{width:42px;height:42px}.manager-variant-row{grid-template-columns:1fr}.manager-results{max-height:240px}}
+/* V10.9.5: comprobación de archivos desde la página, también en móviles. */
+.manager-check-button{display:block;width:100%;margin-top:9px}
+.manager-file-preview{margin:16px 0 0;padding:14px;border-radius:12px;border:1px solid rgba(145,109,212,.28);background:rgba(145,109,212,.06);min-width:0}
+.manager-file-preview[hidden]{display:none!important}
+.manager-file-preview h3{font-size:15px;margin:0 0 10px}
+.manager-file-preview details{padding:10px 0;border-top:1px solid rgba(130,120,145,.16)}
+.manager-file-preview summary{font-size:12px;font-weight:600;cursor:pointer}
+.manager-paths{display:grid;gap:5px;max-height:250px;overflow:auto;padding:10px 0}
+.manager-paths code,.manager-delete-path{font:11px/1.55 ui-monospace,Consolas,monospace;overflow-wrap:anywhere;white-space:normal}
+.manager-paths code{display:block;border-radius:6px;background:rgba(130,120,145,.09);padding:5px 8px}
+.manager-delete-path{display:block;padding:2px 4px 10px;opacity:.8;color:var(--muted)}
+.manager-copy-actions{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px}
+.manager-copy-actions .button{font-size:11px;min-width:0;flex:1}
+@media(max-width:600px){.manager-file-preview{padding:11px}.manager-copy-actions{flex-direction:column}}

@@ -1,0 +1,57 @@
+/* V10.6: portada sin fondo artificial, con hero-art de tres tarjetas configurables. */
+.home-hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr);align-items:center;gap:28px;padding:25px 0 38px;min-height:325px;background:transparent;color:var(--text)}
+.home-hero.has-featured{grid-template-columns:minmax(0,1fr) minmax(365px,49%);min-height:433px}
+.home-hero-copy{position:relative;z-index:2;max-width:565px}
+.home-kicker,.home-collection-kicker{font-size:10px;letter-spacing:.25em;font-weight:800;color:#ad8cfc}
+.home-kicker{display:flex;align-items:center;gap:10px;color:#c8b8dc;margin-bottom:19px}
+.home-kicker-dot{width:7px;height:7px;border-radius:50%;background:#d898e4;box-shadow:0 0 0 5px rgba(205,151,227,.12)}
+.home-hero h1{padding-inline:0;margin-inline:0;font-family:'Poppins',sans-serif;font-size:clamp(36px,4.1vw,58px);line-height:1.15;letter-spacing:-.067em;font-weight:800;margin:0 0 18px}
+.home-hero h1 span{display:block;background:linear-gradient(93deg,#b996ff 4%,#f39bc6 76%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.home-hero-text{font-size:13.4px;line-height:1.95;color:var(--muted);max-width:470px;margin-bottom:24px}
+.home-hero-cta{display:inline-flex;align-items:center;justify-content:center;gap:22px;padding:13px 21px;min-height:49px;min-width:198px;border:0;border-radius:12px;background:linear-gradient(105deg,#b299f9,#ef91c8);color:#24172e;font-weight:750;font-size:12px;transition:filter .18s}
+.home-hero-cta:hover{filter:brightness(1.1);color:#201127}
+.home-hero-cta i{font-size:11px}
+.home-stats{display:flex;gap:0;margin-top:40px;max-width:390px}
+.home-stats>div{display:flex;flex-direction:column;gap:0;min-width:95px;padding:0 19px;border-right:1px solid #383140}
+.home-stats>div:first-child{padding-left:0}.home-stats>div:last-child{border:0}
+.home-stats strong{font-size:24px;line-height:1.15;font-weight:800;letter-spacing:-.045em}
+.home-stats span{color:#a09cac;font-size:10px;margin-top:3px;line-height:1.4}
+/* Disposición exacta de las tarjetas del hero; sin fondo detrás de la sección. */
+.hero-art{height:400px;position:relative;perspective:1100px;min-width:0}
+.hero-art[hidden]{display:none!important}
+.hero-glow{position:absolute;inset:2% 5%;background:radial-gradient(ellipse,#8360d55e,transparent 65%);filter:blur(30px);pointer-events:none}
+.hero-shot{position:absolute;top:35px;height:324px;width:200px;border:4px solid #353141;border-radius:18px;overflow:hidden;box-shadow:0 18px 40px #0009;transform-origin:bottom center;background:#241b45;display:block}
+.hero-shot img{display:block;width:100%;height:100%;object-fit:cover}
+.hero-shot-back{left:6%;transform:rotate(-16deg) translateY(7px);z-index:1;filter:brightness(.78)}
+.hero-shot-front{left:31%;transform:rotate(-2deg) translateY(-2px);z-index:3}
+.hero-shot-side{left:55%;transform:rotate(14deg) translateY(7px);z-index:2;filter:brightness(.85)}
+.home-collection{padding:48px 0 0;scroll-margin-top:70px}
+.home-collection-kicker{margin-bottom:15px}
+.home-collection-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.home-collection-head h2{font-family:'Poppins',sans-serif;font-size:33px;line-height:1.2;letter-spacing:-.06em;font-weight:800;color:var(--text)}
+.home-collection-head h2 span{font-size:23px;color:#e18cc8;vertical-align:top}
+.home-collection-head p{font-size:12px;color:var(--muted);margin-top:10px}
+.home-collection-number{font-size:10px;letter-spacing:.17em;font-weight:700;color:var(--muted);white-space:nowrap}
+.home-filters{display:flex;flex-wrap:wrap;gap:9px;margin:26px 0 24px}
+.home-filter{border:1px solid var(--line);background:var(--panel);color:var(--soft);font-size:11px;font-weight:700;padding:10px 16px;border-radius:999px;min-height:37px;transition:background .17s,border-color .17s,color .17s}
+.home-filter.active,.home-filter:hover{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.home-filter i{font-size:10px;margin-right:2px}
+.home-collection-rule{border-top:1px solid var(--line);margin-bottom:21px}
+.home-filter-empty{padding:35px;color:var(--muted);text-align:center}
+@media(max-width:1100px) and (min-width:721px){.home-hero.has-featured{grid-template-columns:minmax(0,1fr) minmax(310px,42%);gap:10px;min-height:392px}.hero-art{height:340px;transform:scale(.79);transform-origin:center center}.home-hero{padding:23px 0 35px}.home-stats{margin-top:31px}}
+@media(max-width:720px){.home-hero{display:block;padding:0;background:transparent;color:var(--text);min-height:0;border-radius:0}.home-hero.has-featured{display:block;grid-template-columns:none;min-height:0;padding:0}.home-hero:before{display:none}.home-hero-copy{max-width:100%}.home-hero h1{font-size:clamp(33px,8vw,42px);line-height:1.2;margin-bottom:17px}.home-kicker{margin-bottom:20px;color:var(--muted)}.home-hero-text{line-height:1.9;color:var(--muted);font-size:12px;margin-bottom:23px}.hero-art{display:none!important}.home-stats{margin-top:30px;max-width:355px}.home-stats>div{min-width:85px;padding:0 16px;border-right-color:var(--line)}.home-stats strong{font-size:21px}.home-stats span{font-size:9px;color:var(--muted)}.home-collection{padding-top:42px;scroll-margin-top:112px}.home-collection-head h2{font-size:27px}.home-collection-head p{line-height:1.7}.home-collection-number{display:none}.home-filters{gap:7px;margin-top:22px}.home-filter{font-size:10.5px;padding:9px 13px}.home-collection-rule{margin-bottom:16px}}
+@media(max-width:370px){.home-hero h1{font-size:33px}.home-filter{padding:9px 11px}.home-stats>div{min-width:0;flex:1;padding:0 10px}}
+/* V10.7: mantener las tarjetas dentro de la pantalla en portátiles medianos. */
+@media (min-width:721px) and (max-width:1100px){.home-hero.has-featured{overflow-x:clip}.hero-art{transform:scale(.72);transform-origin:left center}}
+
+/* V10.7.2: contraste accesible en modo claro, sin alterar el tema oscuro. */
+html[data-theme="light"] .home-kicker,
+html[data-theme="light"] .home-collection-kicker{color:#6b3f91}
+html[data-theme="light"] .home-kicker-dot{background:#8c46bd;box-shadow:0 0 0 5px rgba(140,70,189,.13)}
+html[data-theme="light"] .home-hero h1 span{background:linear-gradient(95deg,#7542b0 4%,#a73a80 80%);-webkit-background-clip:text;background-clip:text;color:transparent}
+html[data-theme="light"] .home-hero-text,
+html[data-theme="light"] .home-collection-head p,
+html[data-theme="light"] .home-stats span,
+html[data-theme="light"] .home-collection-number{color:#61556d}
+html[data-theme="light"] .home-collection-head h2 span{color:#973878}
+html[data-theme="light"] .home-filter:not(.active){color:#5c4e65}
